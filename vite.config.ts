@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/susscanner/', // IMPORTANT for GitHub Pages at https://ChessDev-Hub.github.io/susscanner/
+  base: '/susscanner/', // IMPORTANT for GitHub Pages
 })
