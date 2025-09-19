@@ -89,9 +89,9 @@ export default function App() {
           )}
 
           {data && (
-            <div className="mt-6">
+            <div className="mt-6 rounded-2xl bg-blue-600 p-6 shadow text-white">
               <h2 className="text-lg font-semibold text-gray-900">Summary</h2>
-              <div className="mt-3 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="mt-3 rounded-2xl bg-blue-600 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {stat(
                   "Recent Win Rate",
                   `${((data.recent_wins / Math.max(1, data.recent_games)) * 100).toFixed(1)}%`
@@ -103,7 +103,7 @@ export default function App() {
 
               <div className="mt-6 rounded-2xl bg-blue-600 p-6 shadow text-white">
                 <h3 className="mb-2 text-sm font-medium text-gray-900">
-                  Raw Response
+                  Data
                 </h3>
                 <pre className="max-h-96 overflow-auto rounded-xl bg-gray-900 p-4 text-gray-100">
 {JSON.stringify(data, null, 2)}
