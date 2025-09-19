@@ -101,7 +101,7 @@ export default function App() {
                 {stat("WR Gap", `${(data.wr_gap * 100).toFixed(1)} pp`)}
               </div>
 
-              <div className="mt-6">
+              <div className="mt-6 rounded-2xl bg-blue-600 p-6 shadow text-white">
                 <h3 className="mb-2 text-sm font-medium text-gray-900">
                   Raw Response
                 </h3>
