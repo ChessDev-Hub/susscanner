@@ -1,12 +1,17 @@
-//const API =(import.meta as any).env?.VITE_API_URL ?? "http://127.0.0.1:8000";
+const DEFAULT_API_BASE = "https://sus-scanner-api.onrender.com";
+const API_BASE_RAW = import.meta.env.VITE_API_BASE_URL || DEFAULT_API_BASE;
+const API_BASE = API_BASE_RAW.replace(/\/+$/, ""); // trim trailing slash
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL;
 export async function scan(username: string) {
-  const res = await fetch(`${API_BASE}/scan`, {
+  const url = `${API_BASE}/scan`;           // or `${API_BASE}/api/scan` if you set API_PREFIX=/api
+  const res = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username }),
   });
-  if (!res.ok) throw new Error(await res.text());
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`${res.status} ${res.statusText}: ${text}`);
+  }
   return res.json();
 }
